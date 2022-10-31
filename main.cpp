@@ -45,7 +45,7 @@ int main()
 	Sequence<int>* seq = new ListSequence<int>(arr, 5);
 	seq->Print_line();
 	ISorter<int>* k = new InsertSort<int>();
-	seq = k->Sort(seq, increase);
+	seq = k->Sort(seq, decrease);
 	seq->Print_line();
 
 	return 0;

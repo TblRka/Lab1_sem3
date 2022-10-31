@@ -152,13 +152,12 @@ public:
 		for (int i = 1; i < seq->GetLength(); i++)
 		{
 			int j = i - 1;
-			std::cout <<"pare: " << i << j << " \n";
-			while (j >= 0 && (seq->Get(j + 1) < seq->Get(j)) )
+			//std::cout <<"pare: " << i << j << " \n";
+			while (j >= 0 && cmp(seq->Get(j + 1), seq->Get(j)) == 0)
 			{
-
 				seq->Swap(j + 1, j);
 				j--;
-				std::cout << j << " \n";
+				//std::cout << j << " \n";
 			}
 		}
 		return seq;
