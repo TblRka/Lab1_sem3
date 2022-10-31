@@ -110,12 +110,12 @@ public:
 		//std::cout << (left + right) / 2 << "\n";
 		while (i <= j)
 		{
-			while (seq->Get(i) < temp) i++;
-			while (seq->Get(j) > temp) j--;
+			while (cmp(seq->Get(i),temp) == 0) i++;
+			while (cmp(temp, seq->Get(j)) == 0) j--;
 
 			if (i <= j)
 			{
-				if (seq->Get(i) > seq->Get(j))
+				if (cmp(seq->Get(j),seq->Get(i)) == 0)
 				{
 
 					seq->Swap(i, j);
