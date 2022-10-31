@@ -141,3 +141,26 @@ public:
 	}
 };
 
+template <class T> class InsertSort : public ISorter<T>
+{
+public:
+	InsertSort() {};
+	~InsertSort() {};
+
+	virtual Sequence<T>* Sort(Sequence<T>* seq, int (*cmp)(T, T)) override
+	{
+		for (int i = 1; i < seq->GetLength(); i++)
+		{
+			int j = i - 1;
+			std::cout <<"pare: " << i << j << " \n";
+			while (j >= 0 && (seq->Get(j + 1) < seq->Get(j)) )
+			{
+
+				seq->Swap(j + 1, j);
+				j--;
+				std::cout << j << " \n";
+			}
+		}
+		return seq;
+	}
+ };
