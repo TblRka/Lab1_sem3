@@ -168,6 +168,9 @@ template <class T> class BinInsertSort : public ISorter<T>
 	~BinInsertSort() {};
 	virtual Sequence<T>* Sort(Sequence<T>* seq, int (*cmp)(T, T)) override
 	{
+		for ()
+		{
 
+		}
 	}
 };
