@@ -164,13 +164,38 @@ public:
 
 template <class T> class BinInsertSort : public ISorter<T>
 {
+public:
 	BinInsertSort() {};
 	~BinInsertSort() {};
+	int BinSearch(Sequence<T>* seq, int index1, int index2, T key, int (*cmp)(T, T))
+	{
+		int left = index1;
+		int right = index2;
+		while (left < right)
+		{
+			int mid = (left + right) / 2;
+			if (cmp(key, seq->Get(mid)) == 0)
+			{
+				right = mid;
+			}
+			else
+			{
+				left = mid + 1;
+			}
+		}
+		return left;
+	}
+
 	virtual Sequence<T>* Sort(Sequence<T>* seq, int (*cmp)(T, T)) override
 	{
-		for ()
+		for (int i = 1; i < seq->GetLength(); i++)
 		{
-
+			int temp = BinSearch(seq, 0, i, seq->Get(i), cmp);
+			for (int j = i - 1; j >= temp; j--)
+			{
+				seq->Swap(j, j + 1);
+			}
 		}
+		return seq;
 	}
 };
