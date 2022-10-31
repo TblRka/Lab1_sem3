@@ -25,6 +25,25 @@ void qs(int* s_arr, int first, int last)
 		qs(s_arr, first, j);
 }
 
+int bin_search(int* arr, int first, int last, int key)
+{
+	int left = first;
+	int right = last;
+	while (left < right)
+	{
+		int mid = (left + right) / 2;
+		if (arr[mid] > key)
+		{
+			right = mid;
+		}
+		else
+		{
+			left = mid + 1;
+		}
+	}
+	return left;
+}
+
 int main()
 {
 	//int arr[5] = {9, 1, 1, 11, 48};
@@ -37,6 +56,9 @@ int main()
 		k = rand();
 		arr[i] = k;
 	}
+	//int arr[5] = { 1, 2, 3, 7, 10};
+	//int p = bin_search(arr, 0, 4, 9);
+	//std::cout << p << "\n";
 	//Sequence<int>* seq1 = new ListSequence<int>(arr, 5);
 	//seq1->Print_line();
 
@@ -44,8 +66,8 @@ int main()
 
 	Sequence<int>* seq = new ListSequence<int>(arr, 5);
 	seq->Print_line();
-	ISorter<int>* k = new InsertSort<int>();
-	seq = k->Sort(seq, decrease);
+	ISorter<int>* k = new BinInsertSort<int>();
+	seq = k->Sort(seq, increase);
 	seq->Print_line();
 
 	return 0;
