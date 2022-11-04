@@ -1,5 +1,7 @@
 #include "Sequence.h"
 #include "Sorts.h"
+#include "Menu.h"
+
 
 void qs(int* s_arr, int first, int last)
 {
@@ -48,6 +50,7 @@ int main()
 {
 	//int arr[5] = {9, 1, 1, 11, 48};
 	//int arr[5] = { 0, 1, 1, 0, 48};
+	/*
 	int* arr = new int[5];
 	srand(time(NULL));
 	for (int i = 0; i < 5; i++)
@@ -55,7 +58,7 @@ int main()
 		int k;
 		k = rand();
 		arr[i] = k;
-	}
+	}*/
 	//int arr[5] = { 1, 2, 3, 7, 10};
 	//int p = bin_search(arr, 0, 4, 9);
 	//std::cout << p << "\n";
@@ -63,12 +66,13 @@ int main()
 	//seq1->Print_line();
 
 	//qs(arr, 0, 4);
-
+	/*
 	Sequence<int>* seq = new ListSequence<int>(arr, 5);
 	seq->Print_line();
 	ISorter<int>* k = new BinInsertSort<int>();
 	seq = k->Sort(seq, increase);
 	seq->Print_line();
-
+	*/
+	Menu();
 	return 0;
 }
