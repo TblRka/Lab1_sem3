@@ -130,6 +130,7 @@
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="Sorts.h" />
   </ItemGroup>
