@@ -94,14 +94,7 @@ int main()
 
 	Sequence<int>* seq = new ArraySequence<int>(arr, 5);
 	seq->Print_line();
-	for (int i = 0; i < 5; i++)
-	{
-		Sequence<int>* seq1 = new ArraySequence<int>(arr, 5);
-		std::cout << i + 1 << "\n";
-		seq1->Print_line();
-		seq1 = Sorts[i]->Sort(seq, increase);
-		seq1->Print_line();
-	}
-	//Menu();
+	*/
+	Menu();
 	return 0;
 }
