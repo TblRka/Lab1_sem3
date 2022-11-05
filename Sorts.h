@@ -86,10 +86,8 @@ public:
 
 		for (int i = n - 1; i > 0; i--)
 		{
-			//seq->Print_line();
 			seq->Swap(0, i);
-			//std::cout << i << " \n";
-			//seq->Print_line();
+
 			Heapify(seq, i, 0, cmp);
 		}
 		return seq;
@@ -107,7 +105,7 @@ public:
 		int i = left;
 		int j = right;
 		int temp = seq->Get((left + right) / 2);
-		//std::cout << (left + right) / 2 << "\n";
+
 		while (i <= j)
 		{
 			while (cmp(seq->Get(i),temp) == 0) i++;
@@ -119,8 +117,7 @@ public:
 				{
 
 					seq->Swap(i, j);
-					//std::cout << i << j << " \n";
-					//seq->Print_line();
+
 				}
 				i++;
 				j--;

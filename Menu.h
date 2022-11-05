@@ -2,11 +2,8 @@
 #include "Sequence.h"
 #include "Sorts.h"
 #include "Windows.h"
+#include "Functions.h"
 
-void Timeing(int code)
-{
-
-}
 
 void Menu()
 {
@@ -25,9 +22,26 @@ void Menu()
 				int choise21;
 				std::cout << "Choose datatype: \n" << "1. Int\n" << "2. Float\n" << "3. Student\n";
 				std::cin >> choise21;
-
 				Sleep(10);
 				system("cls");
+
+				std::cout << "Way to create: \n" << "1. Console import\n" << "2. Random generation\n";
+
+				switch (choise21)
+				{
+					case 1: //int
+						int sort;
+						std::cout << "Choose sort: \n" << "1. Bubble sort\n" << "2. Insert sort\n" << "3. Bin insert sort\n" << "4. Heap sort\n" << "5. Quick sort\n";
+						std::cin >> sort;
+						
+						break;
+					case 2: //float
+						int sort;
+						std::cout << "Choose sort: \n" << "1. Bubble sort\n" << "2. Insert sort\n" << "3. Bin insert sort\n" << "4. Heap sort\n" << "5. Quick sort\n";
+						std::cin >> sort;
+
+						break;
+				}
 
 				break;
 		
