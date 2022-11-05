@@ -1,7 +1,7 @@
 #include "Sequence.h"
 #include "Sorts.h"
 #include "Menu.h"
-#include <vector>
+#include "Functions.h"
 
 
 void qs(int* s_arr, int first, int last)
@@ -92,9 +92,18 @@ int main()
 		}
 	}
 
+
+	/*
 	Sequence<int>* seq = new ArraySequence<int>(arr, 5);
 	seq->Print_line();
-	*/
+	Sequence<int>* seq1 = SortHub(seq, increase, 1);
+	seq1->Print_line();*/
+	/*
+	seq = Sorts[0]->Sort(seq, increase);
+	seq->Print_line();
+	seq = Sorts[2]->Sort(seq, decrease);
+	seq->Print_line();*/
+
 	Menu();
 	return 0;
 }
