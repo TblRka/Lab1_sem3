@@ -37,10 +37,44 @@ Sequence<T>* SortHub(Sequence<T>* seq, int (*cmp)(T, T), int sort_number)
 	seq = Sorts[sort_number]->Sort(seq, cmp);
 	return seq;
 }
+void elem_generation(int& elem)
+{
+	elem = rand();
+}
+
+void elem_generation(double& elem)
+{
+	elem = (double)(rand()) / RAND_MAX * 100000;
+}
+
+template <typename T> 
+void generation(int creation, T* arr, int size)
+{
+	if (creation == 1)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			T k;
+			std::cin >> k;
+			arr[i] = k;
+		}
+	}
+	else
+	{
+		srand(time(NULL));
+		for (int i = 0; i < size; i++)
+		{
+			T k;
+			elem_generation(k);
+			arr[i] = k;
+		}
+	}
+}
+
 
 
 
 void Timeing(int code)
 {
-
+	
 }
