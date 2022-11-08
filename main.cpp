@@ -2,6 +2,7 @@
 #include "Sorts.h"
 #include "Menu.h"
 #include "Functions.h"
+#include <chrono>
 
 
 void qs(int* s_arr, int first, int last)
@@ -99,12 +100,19 @@ int main()
 	Sequence<int>* seq1 = SortHub(seq, increase, 4);
 	seq1->Print_line();*/
 
-	
+	auto start = std::chrono::high_resolution_clock::now();
 	seq = Sorts[4]->Sort(seq, increase);
+	auto end = std::chrono::high_resolution_clock::now();
 	seq->Print_line();
-	seq = Sorts[4]->Sort(seq, decrease);
-	seq->Print_line();
+	std::chrono::duration<double> duration = end - start;
+	std::cout << duration.count() << '\n';
 
+	auto start1 = std::chrono::high_resolution_clock::now();
+	seq = Sorts[4]->Sort(seq, decrease);
+	auto end1 = std::chrono::high_resolution_clock::now();
+	seq->Print_line();
+	std::chrono::duration<double> duration1 = end1 - start1;
+	std::cout << duration1.count() << '\n';
 	//Menu();
 	return 0;
 }
