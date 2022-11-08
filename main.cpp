@@ -93,17 +93,18 @@ int main()
 	}
 
 
-	/*
 	Sequence<int>* seq = new ArraySequence<int>(arr, 5);
 	seq->Print_line();
-	Sequence<int>* seq1 = SortHub(seq, increase, 1);
-	seq1->Print_line();*/
 	/*
-	seq = Sorts[0]->Sort(seq, increase);
-	seq->Print_line();
-	seq = Sorts[2]->Sort(seq, decrease);
-	seq->Print_line();*/
+	Sequence<int>* seq1 = SortHub(seq, increase, 4);
+	seq1->Print_line();*/
 
-	Menu();
+	
+	seq = Sorts[4]->Sort(seq, increase);
+	seq->Print_line();
+	seq = Sorts[4]->Sort(seq, decrease);
+	seq->Print_line();
+
+	//Menu();
 	return 0;
 }

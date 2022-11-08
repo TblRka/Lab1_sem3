@@ -103,7 +103,8 @@ public:
 	{
 		int i = left;
 		int j = right;
-		int temp = seq->Get(rand() % (right - left + 1));
+
+		T temp = seq->Get(left + rand() % (right - left + 1));
 
 		while (i <= j)
 		{
@@ -112,7 +113,7 @@ public:
 
 			if (i <= j)
 			{
-				if (cmp(seq->Get(j),seq->Get(i)) == 0)
+				if (cmp(seq->Get(j), seq->Get(i)) == 0)
 				{
 
 					seq->Swap(i, j);
