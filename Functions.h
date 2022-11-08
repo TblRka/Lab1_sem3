@@ -74,10 +74,37 @@ void generation(int creation, T* arr, int size)
 
 
 
-
-void Timeing(int code)
+template <typename T>
+void Timeing(int code, std::vector<ISorter<T>*> Sorts)
 {
-	auto start = std::chrono::high_resolution_clock::now();
-	auto end = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<float> duration = end - start;
+	int i;
+	while (code > 0)
+	{
+		i = code % 10;
+		code = code / 10;
+
+
+
+
+
+		auto start = std::chrono::high_resolution_clock::now();
+
+
+
+		auto end = std::chrono::high_resolution_clock::now();
+		std::chrono::duration<float> duration = end - start;
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+	
 }
