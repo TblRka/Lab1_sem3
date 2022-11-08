@@ -103,7 +103,7 @@ public:
 	{
 		int i = left;
 		int j = right;
-		int temp = seq->Get((left + right) / 2);
+		int temp = seq->Get(rand() % (right - left + 1));
 
 		while (i <= j)
 		{

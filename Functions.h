@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <chrono>
 
 //template<class T> T max(T value1, T value2)
 //{
@@ -76,5 +77,7 @@ void generation(int creation, T* arr, int size)
 
 void Timeing(int code)
 {
-	
+	auto start = std::chrono::high_resolution_clock::now();
+	auto end = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<float> duration = end - start;
 }
