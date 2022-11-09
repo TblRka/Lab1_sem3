@@ -131,22 +131,11 @@ int main()
 	std::cout << duration1.count() << '\n';*/
 	//Menu();
 
-	float** timetable = new float*;
+	float* timetable = new float[5];
 
-	for (int i = 0; i < 5; i++)
-	{
-		for (int j = 0;j < 5; j++)
-		{
-			timetable[i][j] = 0;
-			std::cout << timetable[i][j];
-		}
-		std::cout << '\n';
-	}
+	//std::cout << typeid(timetable).name();
 
-	std::cout << typeid(timetable).name();
-
-	//Timeing(125, Sorts, timetable, sequences, 5);
-
+	Timeing(125, Sorts, timetable, sequences, 5);
 
 
 	return 0;

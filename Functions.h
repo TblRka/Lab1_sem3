@@ -75,31 +75,26 @@ void generation(int creation, T* arr, int size)
 
 
 template <typename T>
-void Timeing(int code, std::vector<ISorter<T>*> Sorts, float** Times, std::vector<Sequence<T>*> Sequences, int points)
+void Timeing(int code, std::vector<ISorter<T>*> Sorts, float* Times, std::vector<Sequence<T>*> Sequences, int points)
 {
-	int i;
-	while (code > 0)
+	std::cout << "come on\n";
+	for (int j = 0; j < points; j++)
 	{
-		i = code % 10;
-		code = code / 10;
-		
-		std::cout << i << '\n';
+		std::cout << j << '\n';
 
-		for (int j = 0; j < points; j++)
-		{
-			auto start = std::chrono::high_resolution_clock::now();
+		Sequence<T>* seq;
 
-			Sequences.push_back(Sorts[i - 1]->Sort(Sequences[j], increase));
+		auto start = std::chrono::high_resolution_clock::now();
+		std::cout << "come on1\n";
 
-			auto end = std::chrono::high_resolution_clock::now();
-			std::chrono::duration<float> duration = end - start;
+		Sequence<T>* seq = Sorts[code - 1]->Sort(Sequences[j], increase);
 
-			Times[i][j] += duration.count();
-		}
-	}
+		std::cout << "come on2\n";
 
+		auto end = std::chrono::high_resolution_clock::now();
+		seq->Print_line();
+		std::chrono::duration<float> duration = end - start;
 
-
-
-	
+		Times[j] += duration.count();
+	}	
 }
