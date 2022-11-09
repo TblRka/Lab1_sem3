@@ -52,14 +52,30 @@ int main()
 {
 	//int arr[5] = {9, 1, 1, 11, 48};
 	//int arr[5] = { 0, 1, 1, 0, 48};
-	int* arr = new int[5];
+
+	std::vector<Sequence<int>*> sequences;
+
 	srand(time(NULL));
-	for (int i = 0; i < 5; i++)
+	int size;
+	for (int j = 0; j < 5; j++)
 	{
-		int k;
-		k = rand();
-		arr[i] = k;
+		size = rand() % 16;
+		int* arr = new int[size];
+		for (int i = 0; i < size; i++)
+		{
+			int k;
+			k = rand();
+			arr[i] = k;
+		}
+		Sequence<int>* seq = new ArraySequence<int>(arr, size);
+		sequences.push_back(seq);
 	}
+
+	for (int j = 0; j < 5; j++)
+	{
+		sequences[j]->Print_line();
+	}
+
 	//int arr[5] = { 1, 2, 3, 7, 10};
 	//int p = bin_search(arr, 0, 4, 9);
 	//std::cout << p << "\n";
@@ -67,7 +83,7 @@ int main()
 	//seq1->Print_line();
 
 	//qs(arr, 0, 4);
-	
+
 	std::vector<ISorter<int>*> Sorts;
 	for (int i = 0; i < 5; i++)
 	{
@@ -94,12 +110,12 @@ int main()
 	}
 
 
-	Sequence<int>* seq = new ArraySequence<int>(arr, 5);
-	seq->Print_line();
+	//Sequence<int>* seq = new ArraySequence<int>(arr, 5);
+	//seq->Print_line();
 	/*
 	Sequence<int>* seq1 = SortHub(seq, increase, 4);
 	seq1->Print_line();*/
-
+	/*
 	auto start = std::chrono::high_resolution_clock::now();
 	seq = Sorts[4]->Sort(seq, increase);
 	auto end = std::chrono::high_resolution_clock::now();
@@ -112,7 +128,30 @@ int main()
 	auto end1 = std::chrono::high_resolution_clock::now();
 	seq->Print_line();
 	std::chrono::duration<double> duration1 = end1 - start1;
-	std::cout << duration1.count() << '\n';
+	std::cout << duration1.count() << '\n';*/
 	//Menu();
+
+	float** timetable = new float*;
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0;j < 5; j++)
+		{
+			timetable[i][j] = 0;
+			std::cout << timetable[i][j];
+		}
+		std::cout << '\n';
+	}
+
+	std::cout << typeid(timetable).name();
+
+	//Timeing(125, Sorts, timetable, sequences, 5);
+
+
+
 	return 0;
+
+
+
+
 }

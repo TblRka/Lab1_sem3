@@ -103,7 +103,7 @@ void Menu()
 				Sleep(10);
 				system("cls");
 
-				Timeing(choise22);
+				//Timeing(choise22);
 
 				break;
 
