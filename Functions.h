@@ -99,5 +99,30 @@ void Timeing(int code, std::vector<ISorter<T>*> Sorts, float* Times, std::vector
 	}	
 }
 
+template <typename T>
+void Timeing(int code, std::vector<ISorter<T>*> Sorts, float** Times, std::vector<Sequence<T>*> Sequences, int points)
+{
+	int i;
+	while (code > 0)
+	{
+		i = code % 10;
+		code = code / 10;
+
+		std::cout << i << '\n';
+
+		for (int j = 0; j < points; j++)
+		{
+			auto start = std::chrono::high_resolution_clock::now();
+
+			Sequences.push_back(Sorts[i - 1]->Sort(Sequences[j], increase));
+
+			auto end = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<float> duration = end - start;
+
+			Times[i][j] += duration.count();
+		}
+	}
+}
+
 
 
