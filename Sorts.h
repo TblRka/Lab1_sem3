@@ -1,13 +1,13 @@
 #pragma once
 #include "Sequence.h"
 
-template <class T> int increase(T elem1, T elem2)
+template <typename T> int increase(T elem1, T elem2)
 {
 	if (elem2 > elem1)  return 0 ;
 	else  return 1 ;
 }
 
-template <class T> int decrease(T elem1, T elem2)
+template <typename T> int decrease(T elem1, T elem2)
 {
 	if (elem2 < elem1) return 0;
 	else  return 1;
@@ -18,7 +18,6 @@ template <class T> int decrease(T elem1, T elem2)
 template <class T> class ISorter
 {
 public:
-
 	virtual Sequence<T>* Sort(Sequence<T>* seq, int (*cmp)(T, T)) = 0;	
 };
 

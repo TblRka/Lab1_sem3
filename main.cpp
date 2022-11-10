@@ -59,7 +59,7 @@ int main()
 	int size;
 	for (int j = 0; j < 5; j++)
 	{
-		size = rand() % 16;
+		size = 500 + 500 * j;
 		int* arr = new int[size];
 		for (int i = 0; i < size; i++)
 		{
@@ -70,11 +70,11 @@ int main()
 		Sequence<int>* seq = new ArraySequence<int>(arr, size);
 		sequences.push_back(seq);
 	}
-
+	/*
 	for (int j = 0; j < 5; j++)
 	{
 		sequences[j]->Print_line();
-	}
+	}*/
 
 	//int arr[5] = { 1, 2, 3, 7, 10};
 	//int p = bin_search(arr, 0, 4, 9);
@@ -135,8 +135,13 @@ int main()
 
 	//std::cout << typeid(timetable).name();
 
-	Timeing(125, Sorts, timetable, sequences, 5);
+	Timeing(1, Sorts, timetable, sequences, 5);
 
+
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << timetable[i] << '\n';
+	}
 
 	return 0;
 
