@@ -59,7 +59,7 @@ int main()
 	int size;
 	for (int j = 0; j < 5; j++)
 	{
-		size = 500 + 500 * j;
+		size = 5 + 5 * j;
 		int* arr = new int[size];
 		for (int i = 0; i < size; i++)
 		{
@@ -68,8 +68,14 @@ int main()
 			arr[i] = k;
 		}
 		Sequence<int>* seq = new ArraySequence<int>(arr, size);
+		seq->Print_line();
 		sequences.push_back(seq);
 	}
+
+	//Sequence<int>* seq1 = new ArraySequence<int>();
+	//seq1->Append(6);
+	//seq1->Print_line();
+
 	/*
 	for (int j = 0; j < 5; j++)
 	{
@@ -77,7 +83,7 @@ int main()
 	}*/
 
 	//int arr[5] = { 1, 2, 3, 7, 10};
-	//int p = bin_search(arr, 0, 4, 9);
+	//int p = bin_search(arr, 0, 4, 9
 	//std::cout << p << "\n";
 	//Sequence<int>* seq1 = new ListSequence<int>(arr, 5);
 	//seq1->Print_line();
@@ -131,17 +137,65 @@ int main()
 	std::cout << duration1.count() << '\n';*/
 	//Menu();
 
-	float* timetable = new float[5];
+
+	float** timetable = new float* [5];
+
+	for (int i = 0; i < 5; i++)
+	{
+		timetable[i] = new float[5];
+		Timeing(i + 1, Sorts, timetable[i], 5);
+		//for (int j = 0; j < 5; j++)
+		//{
+		//	sequences[j]->Print_line();
+		//}
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			std::cout << timetable[i][j] << "  ";
+		}
+		std::cout << "\n";
+	}
+
 
 	//std::cout << typeid(timetable).name();
-
+	/*
 	Timeing(1, Sorts, timetable, sequences, 5);
 
 
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << timetable[i] << '\n';
+	}*/
+
+	/*
+	ArraySequence<ArraySequence<double>>* timetable1 = new ArraySequence<ArraySequence<double>>(5);
+
+	std::cout << typeid(timetable1->Get(0)).name();
+
+	(timetable1->Get(0)).Append(0.3);
+
+	for (int i = 0; i < 5; i++)
+	{
+		&(timetable1->Get(i)) = new ArraySequence<double>();
+		(timetable1->Get(i)).Append(0.3);
 	}
+
+
+	Timeing(21, Sorts, timetable1, sequences, 5);
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			float p = (timetable1->Get(i)).Get(j);
+			std::cout << p;
+		}
+		std::cout << '\n';
+	}
+	*/
 
 	return 0;
 

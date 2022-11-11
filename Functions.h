@@ -75,24 +75,29 @@ void generation(int creation, T* arr, int size)
 
 
 template <typename T>
-void Timeing(int code, std::vector<ISorter<T>*> Sorts, float* Times, std::vector<Sequence<T>*> Sequences, int points)
+void Timeing(int code, std::vector<ISorter<T>*> Sorts, float* Times, int points)
 {
 	//std::cout << "come on\n";
+	int size;
 	for (int j = 0; j < points; j++)
 	{
-		//std::cout << j << '\n';
+		size = 500 + 500 * j;
+
+		T* arr = new T[size];
+		generation(2, arr, size);
+		Sequence<T>* seq = new ArraySequence<T>(arr, size);
 
 		auto start = std::chrono::high_resolution_clock::now();
 		//std::cout << "come on1\n";
 
-		Sequence<T>* seq = Sorts[code - 1]->Sort(Sequences[j], increase);
+		seq = Sorts[code - 1]->Sort(seq, increase);
 
 		//std::cout << "come on2\n";
 
 		auto end = std::chrono::high_resolution_clock::now();
-		//seq->Print_line();
+		seq->Print_line();
 		std::chrono::duration<float> duration = end - start;
-		std::cout << duration.count() << '\n';
+		//std::cout << duration.count() << '\n';
 
 		Times[j] = duration.count();
 		//std::cout << Times[j] << '\n';
@@ -100,29 +105,61 @@ void Timeing(int code, std::vector<ISorter<T>*> Sorts, float* Times, std::vector
 }
 
 template <typename T>
-void Timeing(int code, std::vector<ISorter<T>*> Sorts, float** Times, std::vector<Sequence<T>*> Sequences, int points)
+float** TimesBase(int points, std::vector<ISorter<T>*> Sorts)
 {
-	int i;
+	float** timetable = new float* [5];
+	for (int i = 0; i < 5; i++)
+	{
+		timetable[i] = new float[5];
+		Timeing(i + 1, Sorts, timetable[i], 5);
+	}
+}
+
+
+/*
+template <typename T>
+void Timeing(int code, std::vector<ISorter<T>*> Sorts, ArraySequence<ArraySequence<double>>* Times, std::vector<Sequence<T>*> Sequences, int points)
+{
+
+	std::cout << "come on\n";
+
 	while (code > 0)
 	{
-		i = code % 10;
+		int i = code % 10;
 		code = code / 10;
 
-		std::cout << i << '\n';
+		std::cout << "i: " << i << '\n';
 
 		for (int j = 0; j < points; j++)
 		{
+
+			//std::cout << "j: " << j << '\n';
 			auto start = std::chrono::high_resolution_clock::now();
 
-			Sequences.push_back(Sorts[i - 1]->Sort(Sequences[j], increase));
+			//std::cout << "come on1\n";
+
+			Sequence<T>* seq = Sorts[code - 1]->Sort(Sequences[j], increase);
+			
+
+			//std::cout << "come on2\n";
+			seq->Print_line();
 
 			auto end = std::chrono::high_resolution_clock::now();
 			std::chrono::duration<float> duration = end - start;
 
-			Times[i][j] += duration.count();
+			//std::cout << "come on3\n";
+
+			//std::cout << i - 1 << '\n';
+
+			//std::cout << duration.count() << '\n';
+
+			(Times->Get(i - 1)).Append(duration.count());
+
+			//std::cout << "come on4\n";
 		}
+		
 	}
-}
+}*/
 
 
 

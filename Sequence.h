@@ -38,6 +38,10 @@ public:
     {
         array_s = new DynamicArray<T>;
     }
+    ArraySequence(int count)
+    {
+        array_s = new DynamicArray<T>(count);
+    }
     ArraySequence(T* items, int count)
     {
         array_s = new DynamicArray<T>(items, count);
@@ -149,6 +153,13 @@ public:
         array_s->Swap(index1, index2);
     }
 };
+
+template <typename T>
+std::ostream& operator<< (std::ostream& os, ArraySequence<T>& a)
+{
+    a.Print_line();
+    return os;
+}
 
 template <class T> class ListSequence : public Sequence<T>
 {
@@ -266,3 +277,5 @@ public:
         list_s->Swap(index1, index2);
     }
 };
+
+
