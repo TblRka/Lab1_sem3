@@ -5,8 +5,35 @@
 #include "Functions.h"
 
 
+
+
 void Menu()
 {
+	std::vector<ISorter<int>*> Sorts;
+	for (int i = 0; i < 5; i++)
+	{
+		if (i + 1 == 1)
+		{
+			Sorts.push_back(new BubbleSort<int>);
+		}
+		if (i + 1 == 2)
+		{
+			Sorts.push_back(new InsertSort<int>);
+		}
+		if (i + 1 == 3)
+		{
+			Sorts.push_back(new BinInsertSort<int>);
+		}
+		if (i + 1 == 4)
+		{
+			Sorts.push_back(new HeapSort<int>);
+		}
+		if (i + 1 == 5)
+		{
+			Sorts.push_back(new QuickSort<int>);
+		}
+	}
+
 	int choise1 = 0;
 	while (choise1 != 3)
 	{
@@ -103,7 +130,17 @@ void Menu()
 				Sleep(10);
 				system("cls");
 
-				//Timeing(choise22);
+				float** timeing = new float* [5];
+				timeing = TimesBase(20, Sorts, choise22);
+
+				for (int i = 0; i < 5; i++)
+				{
+					for (int j = 0; j < 20; j++)
+					{
+						std::cout << timeing[i][j] << "  ";
+					}
+					std::cout << "\n";
+				}
 
 				break;
 

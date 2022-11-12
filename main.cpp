@@ -53,8 +53,8 @@ int main()
 	//int arr[5] = {9, 1, 1, 11, 48};
 	//int arr[5] = { 0, 1, 1, 0, 48};
 
-	std::vector<Sequence<int>*> sequences;
-
+	//std::vector<Sequence<int>*> sequences;
+	/*
 	srand(time(NULL));
 	int size;
 	for (int j = 0; j < 5; j++)
@@ -70,7 +70,7 @@ int main()
 		Sequence<int>* seq = new ArraySequence<int>(arr, size);
 		seq->Print_line();
 		sequences.push_back(seq);
-	}
+	}*/
 
 	//Sequence<int>* seq1 = new ArraySequence<int>();
 	//seq1->Append(6);
@@ -89,7 +89,7 @@ int main()
 	//seq1->Print_line();
 
 	//qs(arr, 0, 4);
-
+	/*
 	std::vector<ISorter<int>*> Sorts;
 	for (int i = 0; i < 5; i++)
 	{
@@ -113,7 +113,7 @@ int main()
 		{
 			Sorts.push_back(new QuickSort<int>);
 		}
-	}
+	}*/
 
 
 	//Sequence<int>* seq = new ArraySequence<int>(arr, 5);
@@ -135,21 +135,20 @@ int main()
 	seq->Print_line();
 	std::chrono::duration<double> duration1 = end1 - start1;
 	std::cout << duration1.count() << '\n';*/
-	//Menu();
+	Menu();
 
-
+	/*
 	float** timetable = new float* [5];
 
+	timetable = TimesBase(5, Sorts, 135);*/
+
+	/*
 	for (int i = 0; i < 5; i++)
 	{
 		timetable[i] = new float[5];
 		Timeing(i + 1, Sorts, timetable[i], 5);
-		//for (int j = 0; j < 5; j++)
-		//{
-		//	sequences[j]->Print_line();
-		//}
-	}
-
+	}*/
+	/*
 	for (int i = 0; i < 5; i++)
 	{
 		for (int j = 0; j < 5; j++)
@@ -157,10 +156,11 @@ int main()
 			std::cout << timetable[i][j] << "  ";
 		}
 		std::cout << "\n";
-	}
+	}*/
 
 
 	//std::cout << typeid(timetable).name();
+
 	/*
 	Timeing(1, Sorts, timetable, sequences, 5);
 
