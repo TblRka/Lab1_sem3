@@ -122,20 +122,24 @@ void Menu()
 				break;
 		
 			case 2:
-				int choise22;
+				int choise22, stop, step;
 				std::cout << "Choose sorts: \n" << "1. Bubble sort\n" << "2. Insert sort\n" << "3. Bin insert sort\n" << "4. Heap sort\n" << "5. Quick sort\n";
 				std::cout << "Enter a number consisting of digits, selected sorts:";
 				std::cin >> choise22;
-
+				std::cout << "Enter stop point: ";
+				std::cin >> stop;
+				std::cout << "Enter step: ";
+				std::cin >> step;
 				Sleep(10);
 				system("cls");
 
+				int points = stop / step;
 				float** timeing = new float* [5];
-				timeing = TimesBase(20, Sorts, choise22);
+				timeing = TimesBase(points, Sorts, choise22, step);
 
 				for (int i = 0; i < 5; i++)
 				{
-					for (int j = 0; j < 20; j++)
+					for (int j = 0; j < points; j++)
 					{
 						std::cout << timeing[i][j] << "  ";
 					}

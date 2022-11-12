@@ -75,13 +75,13 @@ void generation(int creation, T* arr, int size)
 
 
 template <typename T>
-void Timeing(int code, std::vector<ISorter<T>*> Sorts, float* Times, int points)
+void Timeing(int code, std::vector<ISorter<T>*> Sorts, float* Times, int points, int step)
 {
 	//std::cout << "come on\n";
 	int size;
 	for (int j = 0; j < points; j++)
 	{
-		size = 500 + 500 * j;
+		size = step + step * j;
 
 		T* arr = new T[size];
 		generation(2, arr, size);
@@ -117,7 +117,7 @@ float** TimesBase(int points, std::vector<ISorter<T>*> Sorts)
 }
 
 template <typename T>
-float** TimesBase(int points, std::vector<ISorter<T>*> Sorts, int code)
+float** TimesBase(int points, std::vector<ISorter<T>*> Sorts, int code, int step)
 {
 	float** timetable = new float* [5];
 	for (int j = 0; j < 5; j++)
@@ -135,8 +135,7 @@ float** TimesBase(int points, std::vector<ISorter<T>*> Sorts, int code)
 		i = code % 10;
 		std::cout << i << '\n';
 		code = code / 10;
-
-		Timeing(i, Sorts, timetable[i - 1], points);
+		Timeing(i, Sorts, timetable[i - 1], points, step);
 	}
 	return timetable;
 }
