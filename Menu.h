@@ -3,6 +3,7 @@
 #include "Sorts.h"
 #include "Windows.h"
 #include "Functions.h"
+#include <fstream>
 
 
 
@@ -137,14 +138,31 @@ void Menu()
 				float** timeing = new float* [5];
 				timeing = TimesBase(points, Sorts, choise22, step);
 
+				/* простой вывод массива
 				for (int i = 0; i < 5; i++)
 				{
 					for (int j = 0; j < points; j++)
 					{
-						std::cout << timeing[i][j] << "  ";
+						std::cout << timeing[i][j] << " ";
 					}
 					std::cout << "\n";
 				}
+				
+
+				// вывод в файл
+				std::ofstream fout;
+				fout.open("input.txt");
+				
+				for (int i = 0; i < 5; i++)
+				{
+					for (int j = 0; j < points; j++)
+					{
+						std::cout << timeing[i][j] << " ";
+					}
+					std::cout << "\n";
+				}
+
+				fout.close();*/
 
 				break;
 		}
