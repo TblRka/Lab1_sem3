@@ -166,7 +166,7 @@ void Menu()
 				}
 				fout.close();
 
-
+				system("start plot_txt.exe");
 
 				break;
 		}
