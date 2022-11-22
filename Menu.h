@@ -138,7 +138,7 @@ void Menu()
 				float** timeing = new float* [5];
 				timeing = TimesBase(points, Sorts, choise22, step);
 
-				
+				/* простой вывод массива
 				for (int i = 0; i < 5; i++)
 				{
 					for (int j = 0; j < points; j++)
@@ -146,24 +146,27 @@ void Menu()
 						std::cout << timeing[i][j] << " ";
 					}
 					std::cout << "\n";
-				}
+				}*/
 				
 
 				// вывод в файл
-				/* простой вывод массива
 				std::ofstream fout;
-				fout.open("input.txt");
-				
+				fout.open("input.txt", std::ofstream::trunc);
+
+				fout << stop << '\n';
+				fout << step << '\n';
+
 				for (int i = 0; i < 5; i++)
 				{
 					for (int j = 0; j < points; j++)
 					{
-						std::cout << timeing[i][j] << " ";
+						fout << timeing[i][j] << " ";
 					}
-					std::cout << "\n";
+					fout << "\n";
 				}
+				fout.close();
 
-				fout.close();*/
+
 
 				break;
 		}
