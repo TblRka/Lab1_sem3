@@ -147,9 +147,12 @@ void Menu()
 					}
 					std::cout << "\n";
 				}
-				*/
+				
 
 				// גûגמה ג פאיכ
+				std::ofstream fout;
+				fout.open("input.txt");
+				
 				for (int i = 0; i < 5; i++)
 				{
 					for (int j = 0; j < points; j++)
@@ -158,6 +161,8 @@ void Menu()
 					}
 					std::cout << "\n";
 				}
+
+				fout.close();*/
 
 				break;
 
