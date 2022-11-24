@@ -105,6 +105,7 @@ public:
 
 		T temp = seq->Get(left + rand() % (right - left + 1));
 
+		srand(time(NULL));
 		while (i <= j)
 		{
 			while (cmp(seq->Get(i),temp) == 0) i++;
@@ -116,7 +117,6 @@ public:
 				{
 
 					seq->Swap(i, j);
-
 				}
 				i++;
 				j--;
